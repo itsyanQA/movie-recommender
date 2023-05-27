@@ -1,0 +1,18 @@
+.header-container {
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--header-color);
+  padding: 8px;
+
+  h1 {
+    color: black;
+  }
+  nav > ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    li {
+      font-weight: 500;
+    }
+  }
+}
