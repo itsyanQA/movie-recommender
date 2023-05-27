@@ -7,12 +7,27 @@
   h1 {
     color: black;
   }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+  }
+
   nav > ul {
     list-style-type: none;
     display: flex;
     justify-content: space-between;
+    width: 150px;
     li {
       font-weight: 500;
+    }
+  }
+
+  &__nav-item {
+    cursor: pointer;
+    overflow: hidden;
+    &:hover {
+      border-bottom: 1px solid white;
     }
   }
 }

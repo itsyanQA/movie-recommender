@@ -6,8 +6,8 @@ const Header = () => {
       <h1>Movie Recommender</h1>
       <nav>
         <ul>
-          <li>Geners</li>
-          <li>Actors</li>
+          <li className="header-container__nav-item">Geners</li>
+          <li className="header-container__nav-item">Actors</li>
         </ul>
       </nav>
     </header>
