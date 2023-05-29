@@ -1,12 +1,19 @@
 .headerContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   background-color: var(--header-color);
   padding: 15px;
+  align-items: center;
 
   nav {
     display: flex;
     justify-content: space-between;
+  }
+
+  &HeadingWrapper {
+    display: flex;
+    align-items: center;
+    gap: 7px;
   }
 
   h1 {
@@ -18,17 +25,20 @@
     list-style-type: none;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 150px;
+    gap: 60px;
   }
 
   &NavItem {
     cursor: pointer;
     color: var(--text-color);
     font-weight: 500;
-    border-bottom: 1px solid transparent;
+    border-bottom: 3px solid transparent;
+    font-size: 20px;
 
     &:hover {
-      border-bottom: 1px solid white;
+      border-color: white;
     }
   }
 }
