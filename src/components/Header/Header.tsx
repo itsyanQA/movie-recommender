@@ -1,13 +1,13 @@
-import "./Header.scss";
+import styles from "./Header.module.scss";
 
 const Header = () => {
   return (
-    <header className="header-container">
+    <header className={`${styles.headerContainer}`}>
       <h1>Movie Recommender</h1>
       <nav>
         <ul>
-          <li className="header-container__nav-item">Geners</li>
-          <li className="header-container__nav-item">Actors</li>
+          <li className={`${styles.headerContainerNavItem}`}>Geners</li>
+          <li className={`${styles.headerContainerNavItem}`}>Actors</li>
         </ul>
       </nav>
     </header>
