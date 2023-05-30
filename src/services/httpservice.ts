@@ -7,7 +7,7 @@ const _axios = axios.create({
 });
 
 type httpServiceType = {
-  endpoint: string;
+  endpoint: string; // TODO: Use enum values for all relevant endpoint
   method: HttpMethod;
   data: ObjectLiteral;
 };
