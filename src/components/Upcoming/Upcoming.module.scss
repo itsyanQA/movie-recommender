@@ -1,0 +1,15 @@
+.sectionContainer {
+  &UpcomingMovieImage {
+    height: 148px;
+    width: 100px;
+  }
+
+  &Label {
+    font-weight: 500;
+  }
+
+  &Card {
+    display: flex;
+    gap: 10px;
+  }
+}
