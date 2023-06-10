@@ -7,7 +7,7 @@ const tempData = [
   { title: "The Godfather", year: 1972 },
 ];
 
-const SearchBar = () => {
+export function SearchBar() {
   return (
     <Autocomplete
       freeSolo
@@ -17,6 +17,4 @@ const SearchBar = () => {
       )}
     />
   );
-};
-
-export default SearchBar;
+}

@@ -1,7 +1,8 @@
-import SearchBar from "../SearchBar/SearchBar";
+import { SearchBar } from "../SearchBar/SearchBar";
 import styles from "./Header.module.scss";
 import LocalMoviesOutlinedIcon from "@mui/icons-material/LocalMoviesOutlined";
-const Header = () => {
+
+export function Header() {
   return (
     <header className={styles.headerContainer}>
       <div className={styles.headerContainerHeadingWrapper}>
@@ -17,6 +18,4 @@ const Header = () => {
       </nav>
     </header>
   );
-};
-
-export default Header;
+}
