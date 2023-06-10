@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { GetUpcomingMoviesParams } from "../../models/types/params";
-import { MovieEndpoints } from "../../models/enum/MovieEndpoints";
+import { MovieEndpoints } from "../../models/enums/MovieEndpoints";
 
 export const moviesApi = createApi({
   reducerPath: "moviesApi",
