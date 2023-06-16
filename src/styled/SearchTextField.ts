@@ -3,7 +3,7 @@ import { styled } from "@mui/system";
 
 const SearchTextField = styled(TextField)`
   & .MuiInputBase-root {
-    width: 150px;
+    width: 300px;
     border-radius: 20px;
     background-color: #fff;
     height: 26px;
