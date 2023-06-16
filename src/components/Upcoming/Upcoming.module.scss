@@ -7,6 +7,7 @@
     object-fit: cover;
     border-radius: 8px;
     border: 2px solid var(--primary-color);
+    image-rendering: pixelated;
   }
 
   &Card {
@@ -18,6 +19,12 @@
 
   &MovieTitle {
     align-self: flex-start;
+  }
+
+  &MovieDate {
+    align-self: flex-start;
+    font-size: 14px;
+    color: #414a4c;
   }
 
   &Header {
