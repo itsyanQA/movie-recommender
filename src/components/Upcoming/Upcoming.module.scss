@@ -8,6 +8,13 @@
     border-radius: 8px;
     border: 2px solid var(--primary-color);
     image-rendering: pixelated;
+    filter: brightness(70%);
+    transition: filter 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(100%);
+    }
   }
 
   &Card {
@@ -19,6 +26,11 @@
 
   &MovieTitle {
     align-self: flex-start;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   &MovieDate {
