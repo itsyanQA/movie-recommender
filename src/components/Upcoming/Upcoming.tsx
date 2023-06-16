@@ -24,9 +24,8 @@ export function Upcoming({ upcomingMovies, isLoading, isError }: UpcomingProps) 
         {upcomingMovies?.map((upcomingMovie: Movie, index: number) => {
           if (upcomingMovie?.primaryImage?.url) {
             return (
-              <div className={styles.sectionContainerCard}>
+              <div className={styles.sectionContainerCard} key={index}>
                 <img
-                  key={index}
                   alt="movie cover"
                   className={styles.sectionContainerUpcomingMovieImage}
                   src={upcomingMovie?.primaryImage?.url}
