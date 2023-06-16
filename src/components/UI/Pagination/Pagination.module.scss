@@ -1,0 +1,6 @@
+@use "../../../style/mixins.scss" as *;
+
+.paginationContainer {
+  @include flexCenter;
+  margin-top: 10px;
+}
