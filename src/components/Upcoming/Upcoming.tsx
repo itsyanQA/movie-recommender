@@ -26,7 +26,7 @@ export function Upcoming({ upcomingMovies, isLoading, isError }: UpcomingProps) 
             return (
               <div className={styles.sectionContainerCard} key={index}>
                 <img
-                  alt="movie cover"
+                  alt={upcomingMovie?.primaryImage?.caption?.plainText}
                   className={styles.sectionContainerUpcomingMovieImage}
                   src={upcomingMovie?.primaryImage?.url}
                 />
