@@ -13,7 +13,7 @@ export function SearchBar() {
       freeSolo
       options={tempData?.map((option) => option.title)}
       renderInput={(params) => (
-        <SearchTextField placeholder="Search" {...params} sx={{ width: "100px" }} />
+        <SearchTextField placeholder="Search" {...params} />
       )}
     />
   );
