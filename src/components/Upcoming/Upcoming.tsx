@@ -31,7 +31,12 @@ export function Upcoming({ upcomingMovies, isLoading, isError }: UpcomingProps) 
                   className={styles.sectionContainerUpcomingMovieImage}
                   src={upcomingMovie?.primaryImage?.url}
                 />
-                <p className={styles.sectionContainerMovieTitle}>{upcomingMovie?.originalTitleText.text}</p>
+                <p className={styles.sectionContainerMovieTitle}>
+                  {upcomingMovie?.originalTitleText.text}
+                </p>
+                <p className={styles.sectionContainerMovieDate}>
+                  {`${upcomingMovie?.releaseDate?.day}/${upcomingMovie?.releaseDate?.month}/${upcomingMovie?.releaseDate?.year}`}
+                </p>
               </div>
             );
           }
