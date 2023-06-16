@@ -1,0 +1,6 @@
+@use "../../style/mixins.scss" as *;
+
+.loaderContainer {
+  @include flexCenter;
+  margin-top: 5%;
+}
