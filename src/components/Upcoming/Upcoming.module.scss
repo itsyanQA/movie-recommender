@@ -1,15 +1,35 @@
 .sectionContainer {
-  &UpcomingMovieImage {
-    height: 148px;
-    width: 100px;
-  }
+  padding: 10px;
 
-  &Label {
-    font-weight: 500;
+  &UpcomingMovieImage {
+    height: 225px;
+    width: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid var(--primary-color);
   }
 
   &Card {
     display: flex;
-    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+    max-width: 150px;
+  }
+
+  &MovieTitle {
+    align-self: flex-start;
+  }
+
+  &Header {
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+  }
+
+  &Row {
+    display: flex;
+    column-gap: 40px;
+    row-gap: 10px;
+    flex-wrap: wrap;
   }
 }
