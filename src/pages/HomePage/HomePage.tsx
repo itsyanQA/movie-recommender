@@ -1,15 +1,13 @@
 import { Header } from "../../components/Header/Header";
 import { useGetUpcomingMoviesQuery } from "../../store/slices/movieApiSlice";
-import { useEffect } from "react";
 import { Upcoming } from "../../components/Upcoming/Upcoming";
-
 export function HomePage() {
-  const { data: upcomingMovies } = useGetUpcomingMoviesQuery();
+  const { data: upcomingMovies, isLoading, isError } = useGetUpcomingMoviesQuery({ limit: 50 });
 
   return (
     <>
       <Header />
-      <Upcoming upcomingMovies={upcomingMovies?.results}/>
+      <Upcoming upcomingMovies={upcomingMovies?.results} isLoading={isLoading} isError={isError} />
     </>
   );
 }
