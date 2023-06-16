@@ -1,0 +1,1 @@
+export const FETCH_ERROR_TEXT = "Failed to fetch movies";
