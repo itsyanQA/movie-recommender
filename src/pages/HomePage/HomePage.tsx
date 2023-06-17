@@ -9,6 +9,7 @@ export function HomePage() {
     isLoading,
     isError,
     isFetching,
+    page,
     setPage,
   } = useFetchMovies(MovieEndpoints.UPCOMING_TITLES);
 
@@ -20,6 +21,7 @@ export function HomePage() {
         isLoading={isLoading}
         isError={isError}
         isFetching={isFetching}
+        page={page}
         setPage={setPage}
         catalogHeaderText="Upcoming Movies"
       />
