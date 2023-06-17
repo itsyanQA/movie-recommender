@@ -1,0 +1,16 @@
+export enum TitleTypes {
+  MOVIE = "movie",
+  MUSIC_VIDEO = "musicVideo",
+  PODCAST_EPISODE = "podcastEpisode",
+  PODCAST_SERIES = "podcastSeries",
+  SHORT = "short",
+  TV_EPISODE = "tvEpisode",
+  TV_MINI_SERIES = "tvMiniSeries",
+  TV_MOVI = "tvMovie",
+  TV_PILOT = "tvPilot",
+  TV_SERIES = "tvSeries",
+  TV_SHORT = "tvShort",
+  TV_SPECIAL = "tvSpecial",
+  VIDEO = "video",
+  VIDEO_GAME = "videoGame",
+}
