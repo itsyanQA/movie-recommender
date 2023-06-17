@@ -2,7 +2,7 @@ import { Movie } from "../../models/movie.model";
 import styles from "./MovieCatalog.module.scss";
 import { CircularLoading } from "../UI/CircularLoading/CircularLoading";
 import { ErrorMessage } from "../../styled/ErrorMessage";
-import { FETCH_ERROR_TEXT } from "../../constants/Text";
+import { FETCH_ERROR_TEXT, MOVIES_NOT_FOUND } from "../../constants/Text";
 import { Pagination } from "../UI/Pagination/Pagination";
 import LocalMoviesOutlinedIcon from "@mui/icons-material/LocalMoviesOutlined";
 
@@ -12,11 +12,12 @@ type MovieCatalogProps = {
   isError: boolean;
   isFetching: boolean;
   catalogHeaderText: string;
+  page: number;
   setPage: React.Dispatch<React.SetStateAction<number>>;
 };
 
 export function MovieCatalog(props: MovieCatalogProps) {
-  const { movies, isLoading, isError, catalogHeaderText, isFetching, setPage } = props;
+  const { movies, isLoading, isError, catalogHeaderText, isFetching, page, setPage } = props;
 
   const getMovieImage = (
     movieCaption: string | undefined,
@@ -38,6 +39,13 @@ export function MovieCatalog(props: MovieCatalogProps) {
 
   if (isError) {
     return <ErrorMessage>{FETCH_ERROR_TEXT}</ErrorMessage>;
+  } else if (movies?.length === 0) {
+    return (
+      <>
+        <ErrorMessage>{MOVIES_NOT_FOUND}</ErrorMessage>
+        <Pagination movieData={movies} page={page} setPage={setPage} />
+      </>
+    );
   }
 
   return isLoading || isFetching ? (
@@ -60,7 +68,7 @@ export function MovieCatalog(props: MovieCatalogProps) {
           })}
         </div>
       </section>
-      <Pagination setPage={setPage} />
+      <Pagination movieData={movies} page={page} setPage={setPage} />
     </>
   );
 }
