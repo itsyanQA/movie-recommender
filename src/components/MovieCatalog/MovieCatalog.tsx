@@ -14,10 +14,20 @@ type MovieCatalogProps = {
   catalogHeaderText: string;
   page: number;
   setPage: React.Dispatch<React.SetStateAction<number>>;
+  shouldShowPagination?: boolean;
 };
 
 export function MovieCatalog(props: MovieCatalogProps) {
-  const { movies, isLoading, isError, catalogHeaderText, isFetching, page, setPage } = props;
+  const {
+    movies,
+    isLoading,
+    isError,
+    catalogHeaderText,
+    isFetching,
+    page,
+    setPage,
+    shouldShowPagination = true,
+  } = props;
 
   const getMovieImage = (
     movieCaption: string | undefined,
@@ -54,7 +64,11 @@ export function MovieCatalog(props: MovieCatalogProps) {
     <>
       <section className={styles.sectionContainer}>
         <h2 className={styles.sectionContainerHeader}>{catalogHeaderText}</h2>
-        <div className={styles.sectionContainerRow}>
+        <div
+          className={`${styles.sectionContainerRow} ${
+            !shouldShowPagination && styles.sectionContainerHorizontalCatalog
+          }`}
+        >
           {movies?.map((movie: Movie, index: number) => {
             return (
               <div className={styles.sectionContainerCard} key={index}>
@@ -68,7 +82,7 @@ export function MovieCatalog(props: MovieCatalogProps) {
           })}
         </div>
       </section>
-      <Pagination movieData={movies} page={page} setPage={setPage} />
+      {shouldShowPagination && <Pagination movieData={movies} page={page} setPage={setPage} />}
     </>
   );
 }

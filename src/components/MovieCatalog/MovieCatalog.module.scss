@@ -1,6 +1,6 @@
 @use "../../style/mixins" as *;
 
-$placeholder-bg-color: #808080;
+$placeholder-bg-color: var(--grey);
 
 .sectionContainer {
   padding: 10px;
@@ -63,5 +63,11 @@ $placeholder-bg-color: #808080;
 
   &PlaceholderIcon {
     color: var(--primary-color);
+  }
+
+  &HorizontalCatalog {
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    padding-bottom: 15px;
   }
 }
