@@ -1,30 +1,17 @@
-import { Header } from "../../components/Header/Header";
-import { MovieCatalog } from "../../components/MovieCatalog/MovieCatalog";
-import { useFetchMovies } from "../../hooks/useFetchMovies";
-import { MovieEndpoints } from "../../models/enums/MovieEndpoints";
+// import { Header } from "../../components/Header/Header";
+// import { MovieCatalog } from "../../components/MovieCatalog/MovieCatalog";
+// import { useFetchMovies } from "../../hooks/useFetchMovies";
+// import { MovieEndpoints } from "../../models/enums/MovieEndpoints";
 
 export function HomePage() {
-  const {
-    data: upcomingMovies,
-    isLoading,
-    isError,
-    isFetching,
-    page,
-    setPage,
-  } = useFetchMovies(MovieEndpoints.UPCOMING_TITLES);
+  // const {
+  //   data: upcomingMovies,
+  //   isLoading,
+  //   isError,
+  //   isFetching,
+  //   page,
+  //   setPage,
+  // } = useFetchMovies(MovieEndpoints.UPCOMING_TITLES);
 
-  return (
-    <>
-      <Header />
-      <MovieCatalog
-        movies={upcomingMovies?.results}
-        isLoading={isLoading}
-        isError={isError}
-        isFetching={isFetching}
-        page={page}
-        setPage={setPage}
-        catalogHeaderText="Upcoming Movies"
-      />
-    </>
-  );
+  return null // decide what to show in home page (probably snippets of upcoming, most popular etc...);
 }
