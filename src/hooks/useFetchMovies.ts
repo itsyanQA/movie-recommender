@@ -12,6 +12,7 @@ const getMovieApi = (endpoint: MovieEndpoints) => {
 export function useFetchMovies(endpoint: MovieEndpoints) {
   const [page, setPage] = useState<number>(1);
   const fetchApi = getMovieApi(endpoint);
-  const { data, isLoading, isError } = fetchApi({ limit: 50, page: page.toString() });
-  return { data, isLoading, isError, setPage };
+  const { data, isLoading, isError, isFetching } = fetchApi({ limit: 50, page: page.toString() });
+
+  return { data, isLoading, isError, isFetching, setPage };
 }

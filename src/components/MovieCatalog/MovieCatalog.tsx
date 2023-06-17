@@ -10,12 +10,13 @@ type MovieCatalogProps = {
   movies: Movie[];
   isLoading: boolean;
   isError: boolean;
+  isFetching: boolean;
   catalogHeaderText: string;
   setPage: React.Dispatch<React.SetStateAction<number>>;
 };
 
 export function MovieCatalog(props: MovieCatalogProps) {
-  const { movies, isLoading, isError, catalogHeaderText, setPage } = props;
+  const { movies, isLoading, isError, catalogHeaderText, isFetching, setPage } = props;
 
   const getMovieImage = (
     movieCaption: string | undefined,
@@ -39,7 +40,7 @@ export function MovieCatalog(props: MovieCatalogProps) {
     return <ErrorMessage>{FETCH_ERROR_TEXT}</ErrorMessage>;
   }
 
-  return isLoading ? (
+  return isLoading || isFetching ? (
     <CircularLoading />
   ) : (
     <>
