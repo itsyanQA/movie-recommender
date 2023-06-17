@@ -30,7 +30,7 @@ export function MovieCatalog(props: MovieCatalogProps) {
       <div
         className={`${styles.sectionContainerMovieImage} ${styles.sectionContainerPlaceholderImage}`}
       >
-        <LocalMoviesOutlinedIcon />
+        <LocalMoviesOutlinedIcon className={styles.sectionContainerPlaceholderIcon} />
       </div>
     );
   };

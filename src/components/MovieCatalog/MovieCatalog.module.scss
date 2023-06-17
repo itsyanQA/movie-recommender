@@ -60,4 +60,8 @@ $placeholder-bg-color: #808080;
     row-gap: 10px;
     flex-wrap: wrap;
   }
+
+  &PlaceholderIcon {
+    color: var(--primary-color);
+  }
 }
