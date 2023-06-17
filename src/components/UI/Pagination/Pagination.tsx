@@ -9,7 +9,7 @@ export function Pagination({ setPage }: PaginationProps) {
   return (
     <div className={styles.paginationContainer}>
       <MUIPagination
-        count={10}
+        count={50}
         onChange={(event: React.ChangeEvent<unknown>, page: number) => setPage(page)}
       />
     </div>
