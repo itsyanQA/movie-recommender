@@ -1,7 +1,11 @@
+@use "../../style/mixins" as *;
+
+$placeholder-bg-color: #808080;
+
 .sectionContainer {
   padding: 10px;
 
-  &UpcomingMovieImage {
+  &MovieImage {
     height: 225px;
     width: 150px;
     object-fit: cover;
@@ -15,6 +19,11 @@
     &:hover {
       filter: brightness(100%);
     }
+  }
+
+  &PlaceholderImage {
+    @include flexCenter;
+    background-color: $placeholder-bg-color;
   }
 
   &Card {
