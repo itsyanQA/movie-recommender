@@ -8,6 +8,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import { Header } from "./components/Header/Header";
 import { Upcoming } from "./pages/HomePage/Upcoming";
 import { RouterPaths } from "./models/enums/RouterPaths";
+import { Movie } from "./components/Movie/Movie";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path={RouterPaths.HOME_PAGE} element={<HomePage />} />
           <Route path={RouterPaths.UPCOMING} element={<Upcoming />} />
+          <Route path={RouterPaths.MOVIE} element={<Movie />} />
         </Routes>
       </ThemeProvider>
     </ApiProvider>
