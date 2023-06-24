@@ -1,0 +1,32 @@
+.footerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--header-color);
+  gap: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  width: 100%;
+
+  &SocialIcon {
+    cursor: pointer;
+  }
+
+  &SocialIcon:hover {
+    animation: spin 700ms ease-in-out;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

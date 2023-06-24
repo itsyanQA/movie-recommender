@@ -9,6 +9,7 @@ import { Header } from "./components/Header/Header";
 import { Upcoming } from "./pages/HomePage/Upcoming";
 import { RouterPaths } from "./models/enums/RouterPaths";
 import { Movie } from "./components/Movie/Movie";
+import { Footer } from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path={RouterPaths.UPCOMING} element={<Upcoming />} />
           <Route path={RouterPaths.MOVIE} element={<Movie />} />
         </Routes>
+        <Footer />
       </ThemeProvider>
     </ApiProvider>
   );
