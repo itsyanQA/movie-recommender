@@ -47,6 +47,7 @@ export function MovieCatalog(props: MovieCatalogProps) {
           className={styles.sectionContainerMovieImage}
           src={movieImageUrl}
           onClick={() => onMovieClickHandler(movieId)}
+          loading="lazy"
         />
       );
     }
