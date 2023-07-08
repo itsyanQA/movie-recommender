@@ -1,23 +1,17 @@
-import { useState } from "react";
 import { MovieEndpoints } from "../models/enums/MovieEndpoints";
-import { useGetUpcomingMoviesQuery } from "../store/slices/movieApiSlice";
-import { TitleTypes } from "../models/enums/TitleTypes";
+import { useGetUpcomingMoviesQuery, useGetMovieByIdQuery } from "../store/slices/movieApiSlice";
 
-const getMovieApi = (endpoint: MovieEndpoints) => {
+const getMovieApiQuery = (endpoint: MovieEndpoints) => {
   const movieApis = {
     [MovieEndpoints.UPCOMING_TITLES]: useGetUpcomingMoviesQuery,
+    [MovieEndpoints.MOVIE]: useGetMovieByIdQuery,
   };
   return movieApis[endpoint];
 };
 
-export function useFetchMovies(endpoint: MovieEndpoints, responseLimit: number = 50) {
-  const [page, setPage] = useState<number>(1);
-  const fetchApi = getMovieApi(endpoint);
-  const { data, isLoading, isError, isFetching } = fetchApi({
-    limit: responseLimit,
-    page: page.toString(),
-    titleType: TitleTypes.MOVIE,
-  });
+export function useFetchMovies(endpoint: MovieEndpoints, endpointParams?: any) {
+  const apiQuery = getMovieApiQuery(endpoint);
+  const { data, isLoading, isError, isFetching } = apiQuery(endpointParams);
 
-  return { data, isLoading, isError, isFetching, page, setPage };
+  return { data, isLoading, isError, isFetching };
 }
