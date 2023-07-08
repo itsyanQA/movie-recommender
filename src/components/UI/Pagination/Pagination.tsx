@@ -1,7 +1,7 @@
-import MUIPagination from "@mui/material/Pagination";
 import styles from "./Pagination.module.scss";
 import { Movie } from "../../../models/movie.model";
 import { useState, useEffect } from "react";
+import { Pagination as StyledPagination } from "../../../styled/Pagination";
 
 type PaginationProps = {
   page: number;
@@ -28,7 +28,7 @@ export function Pagination({ movieData, page, setPage }: PaginationProps) {
 
   return (
     <div className={styles.paginationContainer}>
-      <MUIPagination
+      <StyledPagination
         count={getPaginationCount()}
         onChange={(event: React.ChangeEvent<unknown>, page: number) => setPage(page)}
         page={page}
