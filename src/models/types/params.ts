@@ -1,3 +1,5 @@
+import { BaseInfoOptions } from "../enums/BaseInfoOptions";
+
 export type GetUpcomingMoviesParams = {
   titleType?: string;
   year?: number;
@@ -9,3 +11,8 @@ export type GetUpcomingMoviesParams = {
   page?: string;
   startYear?: number;
 };
+
+export type GetMovieByIdParams = {
+  movieId: number,
+  info?: BaseInfoOptions
+}
