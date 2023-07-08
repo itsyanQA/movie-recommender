@@ -1,18 +1,21 @@
-import { Header } from "../../components/Header/Header";
 import { MovieCatalog } from "../../components/MovieCatalog/MovieCatalog";
 import { useFetchMovies } from "../../hooks/useFetchMovies";
+import { usePagination } from "../../hooks/usePagination";
 import { MovieEndpoints } from "../../models/enums/MovieEndpoints";
+import { TitleTypes } from "../../models/enums/TitleTypes";
 
 export function HomePage() {
-  const RESPONSE_LIMIT = 20;
+  const { page, setPage } = usePagination();
+  const upcomingMovieParams = {
+    limit: 20,
+    titleType: TitleTypes.MOVIE,
+  };
   const {
     data: upcomingMovies,
     isLoading,
     isError,
     isFetching,
-    page,
-    setPage,
-  } = useFetchMovies(MovieEndpoints.UPCOMING_TITLES, RESPONSE_LIMIT);
+  } = useFetchMovies(MovieEndpoints.UPCOMING_TITLES, upcomingMovieParams);
 
   return (
     <MovieCatalog
