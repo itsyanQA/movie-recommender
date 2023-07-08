@@ -6,9 +6,9 @@ import { moviesApi } from "./store/slices/movieApiSlice";
 import { theme } from "./style/theme";
 import { ThemeProvider } from "@mui/material/styles";
 import { Header } from "./components/Header/Header";
-import { Upcoming } from "./pages/HomePage/Upcoming";
+import { Upcoming } from "./pages/Upcoming/Upcoming";
 import { RouterPaths } from "./models/enums/RouterPaths";
-import { Movie } from "./components/Movie/Movie";
+import { Movie } from "./pages/Movie/Movie";
 import { Footer } from "./components/Footer/Footer";
 
 function App() {
