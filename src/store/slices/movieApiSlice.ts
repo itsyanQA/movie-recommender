@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { GetUpcomingMoviesParams } from "../../models/types/params";
+import { GetUpcomingMoviesParams, GetMovieByIdParams } from "../../models/types/params";
 import { MovieEndpoints } from "../../models/enums/MovieEndpoints";
 
 export const moviesApi = createApi({
@@ -18,7 +18,15 @@ export const moviesApi = createApi({
         return { url: MovieEndpoints.UPCOMING_TITLES, params: { ...args } };
       },
     }),
+    getMovieById: builder.query<any, GetMovieByIdParams>({
+      query: (args) => {
+        return {
+          url: MovieEndpoints.MOVIE.replace("{id}", args.movieId.toString()),
+          params: { ...args },
+        };
+      },
+    }),
   }),
 });
 
-export const { useGetUpcomingMoviesQuery } = moviesApi;
+export const { useGetUpcomingMoviesQuery, useGetMovieByIdQuery } = moviesApi;
