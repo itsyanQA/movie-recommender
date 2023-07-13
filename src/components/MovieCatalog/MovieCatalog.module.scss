@@ -3,7 +3,9 @@
 $placeholder-bg-color: var(--grey);
 
 .sectionContainer {
-  padding: 10px;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
 
   &MovieImage {
     height: 225px;
@@ -59,6 +61,9 @@ $placeholder-bg-color: var(--grey);
     column-gap: 40px;
     row-gap: 10px;
     flex-wrap: wrap;
+    align-self: center;
+    width: 100%;
+    justify-content: center;
   }
 
   &PlaceholderIcon {
@@ -66,6 +71,7 @@ $placeholder-bg-color: var(--grey);
   }
 
   &HorizontalCatalog {
+    justify-content: unset;
     flex-wrap: nowrap;
     overflow-x: scroll;
     padding-bottom: 15px;
