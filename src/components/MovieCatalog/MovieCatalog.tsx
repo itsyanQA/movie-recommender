@@ -84,7 +84,6 @@ export function MovieCatalog(props: MovieCatalogProps) {
           }`}
         >
           {movies?.map((movie: Movie, index: number) => {
-            console.log(movie?.primaryImage?.url);
             const alteredImageUrl = movie?.primaryImage?.url.replace(
               "@._V1_.jpg",
               "@._V1_QL100_UX200_CR25,0,154,229_.jpg"
