@@ -66,10 +66,6 @@ $placeholder-bg-color: var(--grey);
     justify-content: center;
   }
 
-  &PlaceholderIcon {
-    color: var(--primary-color);
-  }
-
   &HorizontalCatalog {
     justify-content: unset;
     flex-wrap: nowrap;

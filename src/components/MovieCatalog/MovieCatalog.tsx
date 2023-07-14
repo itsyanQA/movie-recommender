@@ -1,4 +1,4 @@
-import { Movie } from "../../models/movie.model";
+import { Movie } from "../../models/interfaces/movie-base-interfaces";
 import styles from "./MovieCatalog.module.scss";
 import { CircularLoading } from "../UI/CircularLoading/CircularLoading";
 import { ErrorMessage } from "../../styled/ErrorMessage";
@@ -6,6 +6,7 @@ import { FETCH_ERROR_TEXT, MOVIES_NOT_FOUND } from "../../constants/Text";
 import { Pagination } from "../UI/Pagination/Pagination";
 import LocalMoviesOutlinedIcon from "@mui/icons-material/LocalMoviesOutlined";
 import { useNavigate } from "react-router-dom";
+import { PlaceholderCard } from "../UI/PlaceholderCard/PlaceholderCard";
 
 type MovieCatalogProps = {
   movies: Movie[];
@@ -56,7 +57,7 @@ export function MovieCatalog(props: MovieCatalogProps) {
         onClick={() => onMovieClickHandler(movieId)}
         className={`${styles.sectionContainerMovieImage} ${styles.sectionContainerPlaceholderImage}`}
       >
-        <LocalMoviesOutlinedIcon className={styles.sectionContainerPlaceholderIcon} />
+        <PlaceholderCard />
       </div>
     );
   };
@@ -84,17 +85,14 @@ export function MovieCatalog(props: MovieCatalogProps) {
           }`}
         >
           {movies?.map((movie: Movie, index: number) => {
-            const alteredImageUrl = movie?.primaryImage?.url.replace(
-              "@._V1_.jpg",
-              "@._V1_QL100_UX200_CR25,0,154,229_.jpg"
-            );
+            // const alteredImageUrl = movie?.primaryImage?.url.replace(
+            //   "@._V1_.jpg",
+            //   "@._V1_QL100_UX180_CR25,0,154,229_.jpg"
+            // );
             return (
               <div className={styles.sectionContainerCard} key={index}>
-                {getMovieImage(movie?.primaryImage?.caption?.plainText, alteredImageUrl, movie?.id)}
-                <p
-                  onClick={() => onMovieClickHandler(movie?.id)}
-                  className={styles.sectionContainerMovieTitle}
-                >
+                {getMovieImage(movie?.primaryImage?.caption?.plainText, movie?.primaryImage?.url, movie?.id)}
+                <p onClick={() => onMovieClickHandler(movie?.id)} className={styles.sectionContainerMovieTitle}>
                   {movie?.originalTitleText.text}
                 </p>
                 <p className={styles.sectionContainerMovieDate}>
