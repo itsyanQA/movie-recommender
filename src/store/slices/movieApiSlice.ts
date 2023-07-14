@@ -21,8 +21,8 @@ export const moviesApi = createApi({
     getMovieById: builder.query<any, GetMovieByIdParams>({
       query: (args) => {
         return {
-          url: MovieEndpoints.MOVIE.replace("{id}", args.movieId.toString()),
-          params: { ...args },
+          url: MovieEndpoints.MOVIE.replace("{id}", args.movieId),
+          params: { info: args.info },
         };
       },
     }),
