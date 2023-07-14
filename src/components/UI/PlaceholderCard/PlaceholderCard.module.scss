@@ -1,0 +1,13 @@
+@use "../../../style/mixins" as *;
+
+$placeholder-bg-color: var(--grey);
+
+.placeholderCardContainer {
+  @include flexCenter;
+  background-color: $placeholder-bg-color;
+  border-radius: 5px;
+
+  &Icon {
+    color: var(--primary-color);
+  }
+}
