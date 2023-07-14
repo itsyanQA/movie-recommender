@@ -1,6 +1,6 @@
 import { BaseInfoOptions } from "../enums/BaseInfoOptions";
 
-export type GetUpcomingMoviesParams = {
+export interface GetUpcomingMoviesParams {
   titleType?: string;
   year?: number;
   genre?: string;
@@ -12,7 +12,7 @@ export type GetUpcomingMoviesParams = {
   startYear?: number;
 };
 
-export type GetMovieByIdParams = {
+export interface GetMovieByIdParams {
   movieId: string;
   info?: BaseInfoOptions;
 };

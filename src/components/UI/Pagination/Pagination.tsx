@@ -1,5 +1,5 @@
 import styles from "./Pagination.module.scss";
-import { Movie } from "../../../models/movie.model";
+import { Movie } from "../../../models/interfaces/movie-base-interfaces";
 import { useState, useEffect } from "react";
 import { Pagination as StyledPagination } from "../../../styled/Pagination";
 

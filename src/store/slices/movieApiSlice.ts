@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { GetUpcomingMoviesParams, GetMovieByIdParams } from "../../models/types/params";
+import { GetUpcomingMoviesParams, GetMovieByIdParams } from "../../models/interfaces/params";
 import { MovieEndpoints } from "../../models/enums/MovieEndpoints";
 
 export const moviesApi = createApi({
