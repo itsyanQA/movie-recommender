@@ -13,6 +13,6 @@ export type GetUpcomingMoviesParams = {
 };
 
 export type GetMovieByIdParams = {
-  movieId: number,
-  info?: BaseInfoOptions
-}
+  movieId: string;
+  info?: BaseInfoOptions;
+};
