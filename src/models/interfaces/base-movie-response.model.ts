@@ -1,4 +1,5 @@
 import {
+  Genres,
   Movie,
   OriginalTitleText,
   Plot,
@@ -20,7 +21,7 @@ export interface PaginatedResponse {
 }
 
 export interface MovieByIdResponse {
-  genres: Genre;
+  genres: Genres;
   meterRanking: number;
   id: string;
   originalTitleText: OriginalTitleText;

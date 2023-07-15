@@ -86,6 +86,10 @@ export interface Genre {
   __typename: string;
 }
 
+export interface Genres {
+  genres: Genre[];
+}
+
 interface Language {
   id: string;
   __typename: string;
