@@ -6,6 +6,7 @@ import {
   RatingsSummary,
   ReleaseDate,
   ReleaseYear,
+  Runtime,
   TitleText,
   TitleType,
 } from "./movie-base-interfaces";
@@ -28,7 +29,7 @@ export interface MovieByIdResponse {
   ratingsSummary: RatingsSummary;
   releaseDate: ReleaseDate;
   releaseYear: ReleaseYear;
-  runtime: unknown;
+  runtime: Runtime;
   titleText: TitleText;
   titleTypes: TitleType;
 }

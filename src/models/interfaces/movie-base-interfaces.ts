@@ -106,3 +106,9 @@ export interface RatingsSummary {
   aggregateRating: number;
   voteCount: number;
 }
+
+export interface Runtime {
+  displayableProperty: DisplayableProperty;
+  seconds: number;
+  __typename: string;
+}
