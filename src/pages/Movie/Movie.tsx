@@ -41,6 +41,9 @@ export function Movie() {
             {movie?.runtime?.displayableProperty?.value?.plainText}
           </span>
         </div>
+        <span className={styles.movieInfoImageContainerGenre}>
+          {movie?.genres?.genres?.map((genre) => genre.text).join("/")}
+        </span>
       </div>
     );
   };
