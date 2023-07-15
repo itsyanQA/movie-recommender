@@ -4,19 +4,41 @@
   margin: 10% 0 0 5%;
   display: flex;
 
-  &Image {
-    @include flexCenter;
-    box-shadow: -3px 4px 24px 3px #edc562;
-    border-radius: 5px;
-    height: 345px;
-    width: 230px;
+  &ImageContainer {
+    display: flex;
+    flex-direction: column;
+
+    &Image {
+      @include flexCenter;
+      box-shadow: -3px 4px 24px 3px #edc562;
+      border-radius: 5px;
+      height: 345px;
+      width: 230px;
+    }
+
+    &Duration {
+      display: flex;
+      gap: 5px;
+      margin-top: 10px;
+    }
   }
 
   &Content {
+    &TopDate {
+      color: var(--grey);
+    }
+
     &Top {
       margin-left: 5%;
       display: flex;
       gap: 20px;
+      align-items: center;
+      width: 100%;
+    }
+
+    &Summary {
+      margin-left: 5%;
+      max-width: 40%;
     }
   }
 }
