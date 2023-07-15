@@ -1,4 +1,5 @@
 import styles from "./Movie.module.scss";
+import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
 import { useLocation } from "react-router-dom";
 import { useFetchMovies } from "../../hooks/useFetchMovies";
 import { MovieEndpoints } from "../../models/enums/MovieEndpoints";
@@ -19,7 +20,6 @@ export function Movie() {
   };
   const { data, isLoading, isError, isFetching } = useFetchMovies(MovieEndpoints.MOVIE, movieByIdParam);
   const movie: MovieByIdResponse = data?.results;
-  console.log(movie);
 
   if (isLoading || isFetching) {
     return <CircularLoading />;
@@ -27,24 +27,36 @@ export function Movie() {
     return <ErrorMessage>{FETCH_ERROR_TEXT}</ErrorMessage>;
   }
 
+  const renderImageContainer = (): JSX.Element => {
+    return (
+      <div className={styles.movieInfoImageContainer}>
+        {movie?.primaryImage?.url ? (
+          <img className={styles.movieInfoImageContainerImage} src={movie?.primaryImage?.url} />
+        ) : (
+          <PlaceholderCard dimension={{ height: "345px", width: "230px" }} />
+        )}
+        <div className={styles.movieInfoImageContainerDuration}>
+          {movie?.runtime?.displayableProperty?.value?.plainText && <AccessTimeFilledIcon fontSize="small" />}
+          <span className={styles.movieInfoImageContainerDurationTime}>
+            {movie?.runtime?.displayableProperty?.value?.plainText}
+          </span>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className={styles.movieInfo}>
-      {movie?.primaryImage?.url ? (
-        <img className={styles.movieInfoImage} src={movie?.primaryImage?.url} />
-      ) : (
-        <div className={styles.movieInfoImage} >
-          <PlaceholderCard dimension={{ height: "345px", width: "230px" }} />
-        </div>
-      )}
+      {renderImageContainer()}
       <div className={styles.movieInfoContent}>
         <div className={styles.movieInfoContentTop}>
-          <span className={styles.movieInfoContentTopTitle}>{movie?.originalTitleText?.text}</span>
+          <h2 className={styles.movieInfoContentTopTitle}>{movie?.originalTitleText?.text}</h2>
           <span
             className={styles.movieInfoContentTopDate}
           >{`${movie?.releaseDate?.day}/${movie?.releaseDate?.month}/${movie?.releaseDate?.year}`}</span>
           <span className={styles.movieInfoContentTopDirectedby}></span>
         </div>
-        <p className={styles.movieInfoContentSummary}></p>
+        <p className={styles.movieInfoContentSummary}>{movie?.plot?.plotText?.plainText}</p>
       </div>
     </div>
   );
