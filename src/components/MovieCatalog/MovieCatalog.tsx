@@ -4,7 +4,6 @@ import { CircularLoading } from "../UI/CircularLoading/CircularLoading";
 import { ErrorMessage } from "../../styled/ErrorMessage";
 import { FETCH_ERROR_TEXT, MOVIES_NOT_FOUND } from "../../constants/Text";
 import { Pagination } from "../UI/Pagination/Pagination";
-import LocalMoviesOutlinedIcon from "@mui/icons-material/LocalMoviesOutlined";
 import { useNavigate } from "react-router-dom";
 import { PlaceholderCard } from "../UI/PlaceholderCard/PlaceholderCard";
 

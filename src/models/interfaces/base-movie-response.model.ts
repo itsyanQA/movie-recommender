@@ -11,7 +11,6 @@ import {
   TitleText,
   TitleType,
 } from "./movie-base-interfaces";
-import { Genre } from ".//movie-base-interfaces";
 
 export interface PaginatedResponse {
   page: number;
