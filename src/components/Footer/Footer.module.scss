@@ -1,17 +1,26 @@
+@use "../../style/mixins" as *;
+
 .footerContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flexCenter(column);
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: var(--header-color);
-  gap: 30px;
+  background-color: var(--header-footer);
+  gap: 5px;
   padding-top: 20px;
   padding-bottom: 20px;
   margin-top: 20px;
   width: 100%;
+
+  &Icons {
+    display: flex;
+    gap: 20px;
+  }
+
+  &FullName {
+    color: var(--secondary-text-color);
+  }
 
   &SocialIcon {
     cursor: pointer;

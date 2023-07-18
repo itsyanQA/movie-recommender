@@ -38,6 +38,7 @@ $placeholder-bg-color: var(--grey);
   &MovieTitle {
     align-self: flex-start;
     cursor: pointer;
+    color: var(--primary-text-color);
 
     &:hover {
       text-decoration: underline;
@@ -47,7 +48,7 @@ $placeholder-bg-color: var(--grey);
   &MovieDate {
     align-self: flex-start;
     font-size: 14px;
-    color: #414a4c;
+    color: var(--secondary-text-color);
   }
 
   &Header {

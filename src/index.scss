@@ -3,7 +3,7 @@
 
 body {
   @include overrideDefault;
-  background-color: var(--main-background-color);
+  background-color: var(--bg-color);
   font-family: Jost, sans-serif;
   width: 100%;
   min-height: 100vh;

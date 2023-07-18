@@ -20,26 +20,39 @@
     &Duration {
       display: flex;
       gap: 5px;
-      margin-top: 10px;
+      margin-top: 25px;
+
+      &Time {
+        color: var(--secondary-text-color);
+      }
+    }
+
+    &Genre {
+      color: var(--secondary-text-color);
     }
   }
 
   &Content {
+    padding-left: 50px;
+
     &TopDate {
-      color: var(--grey);
+      color: var(--secondary-text-color);
     }
 
     &Top {
-      margin-left: 5%;
       display: flex;
       gap: 20px;
       align-items: center;
       width: 100%;
+
+      &Title {
+        color: var(--primary-text-color);
+      }
     }
 
     &Summary {
-      margin-left: 5%;
-      max-width: 40%;
+      max-width: 50%;
+      color: var(--secondary-text-color);
     }
   }
 }
