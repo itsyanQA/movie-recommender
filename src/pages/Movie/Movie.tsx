@@ -31,12 +31,14 @@ export function Movie() {
     return (
       <div className={styles.movieInfoImageContainer}>
         {movie?.primaryImage?.url ? (
-          <img className={styles.movieInfoImageContainerImage} src={movie?.primaryImage?.url} />
+          <img className={styles.movieInfoImageContainerImage} src={movie?.primaryImage?.url} alt="movie-image" />
         ) : (
           <PlaceholderCard dimension={{ height: "345px", width: "230px" }} />
         )}
         <div className={styles.movieInfoImageContainerDuration}>
-          {movie?.runtime?.displayableProperty?.value?.plainText && <AccessTimeFilledIcon fontSize="small" />}
+          {movie?.runtime?.displayableProperty?.value?.plainText && (
+            <AccessTimeFilledIcon fontSize="small" sx={{ color: "#ffffff" }} />
+          )}
           <span className={styles.movieInfoImageContainerDurationTime}>
             {movie?.runtime?.displayableProperty?.value?.plainText}
           </span>
