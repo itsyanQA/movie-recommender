@@ -71,5 +71,13 @@ $placeholder-bg-color: var(--grey);
     flex-wrap: nowrap;
     overflow-x: scroll;
     padding-bottom: 15px;
+
+    &Card:first-child {
+      margin-left: 1px;
+    }
   }
+}
+
+.sectionContainerHorizontalCatalog > .sectionContainerCard:first-child {
+  margin-left: 2px;
 }
