@@ -4,19 +4,27 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import * as SOCIAL_LINKS from "../../constants/SocialLinks";
 
 export function Footer() {
-  // TODO: Do a reverse spin when in mouseLeave
+  const iconStyle = {
+    color: "#ffffff",
+  };
+
   return (
     <footer className={styles.footerContainer}>
-      <LinkedInIcon
-        className={styles.footerContainerSocialIcon}
-        fontSize="large"
-        onClick={() => window.open(SOCIAL_LINKS.LINKEDIN_PROFILE_URL)}
-      />
-      <GitHubIcon
-        className={styles.footerContainerSocialIcon}
-        fontSize="large"
-        onClick={() => window.open(SOCIAL_LINKS.GITHUB_PROFILE_URL)}
-      />
+      <div className={styles.footerContainerIcons}>
+        <LinkedInIcon
+          className={styles.footerContainerSocialIcon}
+          fontSize="large"
+          onClick={() => window.open(SOCIAL_LINKS.LINKEDIN_PROFILE_URL)}
+          sx={iconStyle}
+        />
+        <GitHubIcon
+          className={styles.footerContainerSocialIcon}
+          fontSize="large"
+          onClick={() => window.open(SOCIAL_LINKS.GITHUB_PROFILE_URL)}
+          sx={iconStyle}
+        />
+      </div>
+      <span className={styles.footerContainerFullName}>Yan Eliyahu</span>
     </footer>
   );
 }
