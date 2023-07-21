@@ -78,7 +78,7 @@ export function MovieCatalog(props: MovieCatalogProps) {
     <>
       <section className={styles.sectionContainer}>
         <h2 className={styles.sectionContainerHeader}>{catalogHeaderText}</h2>
-        <div
+        <ul
           className={`${styles.sectionContainerRow} ${
             !shouldShowPagination && styles.sectionContainerHorizontalCatalog
           }`}
@@ -89,7 +89,7 @@ export function MovieCatalog(props: MovieCatalogProps) {
             //   "@._V1_QL100_UX180_CR25,0,154,229_.jpg"
             // );
             return (
-              <div className={styles.sectionContainerCard} key={index}>
+              <li className={styles.sectionContainerCard} key={index}>
                 {getMovieImage(movie?.primaryImage?.caption?.plainText, movie?.primaryImage?.url, movie?.id)}
                 <p onClick={() => onMovieClickHandler(movie?.id)} className={styles.sectionContainerMovieTitle}>
                   {movie?.originalTitleText.text}
@@ -97,10 +97,10 @@ export function MovieCatalog(props: MovieCatalogProps) {
                 <p className={styles.sectionContainerMovieDate}>
                   {`${movie?.releaseDate?.day}/${movie?.releaseDate?.month}/${movie?.releaseDate?.year}`}
                 </p>
-              </div>
+              </li>
             );
           })}
-        </div>
+        </ul>
       </section>
       {shouldShowPagination && <Pagination movieData={movies} page={page} setPage={setPage} />}
     </>
