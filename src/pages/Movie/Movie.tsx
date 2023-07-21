@@ -56,8 +56,13 @@ export function Movie() {
       {renderImageContainer()}
       <div className={styles.movieInfoContent}>
         <h2 className={styles.movieInfoContentTitle}>{movie?.originalTitleText?.text}</h2>
-        <span className={styles.movieInfoContentDirectedby}></span>
-        <div className={styles.movieInfoContentMetaInfo}>
+        <div
+          className={styles.movieInfoContentMetaInfo}
+          style={{
+            borderBottom: movie?.plot?.plotText?.plainText ? "1px solid white" : "",
+            maxWidth: movie?.plot?.plotText?.plainText ? "50%" : "",
+          }}
+        >
           <ImdbLogo movieId={movieId} />
           <span
             className={styles.movieInfoContentDate}
