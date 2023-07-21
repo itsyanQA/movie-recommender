@@ -10,6 +10,7 @@ import { CircularLoading } from "../../components/UI/CircularLoading/CircularLoa
 import { ErrorMessage } from "../../styled/ErrorMessage";
 import { FETCH_ERROR_TEXT } from "../../constants/Text";
 import { PlaceholderCard } from "../../components/UI/PlaceholderCard/PlaceholderCard";
+import { ImdbLogo } from "../../assets/imdb-logo";
 
 export function Movie() {
   const location = useLocation();
@@ -54,12 +55,13 @@ export function Movie() {
     <div className={styles.movieInfo}>
       {renderImageContainer()}
       <div className={styles.movieInfoContent}>
-        <div className={styles.movieInfoContentTop}>
-          <h2 className={styles.movieInfoContentTopTitle}>{movie?.originalTitleText?.text}</h2>
+        <h2 className={styles.movieInfoContentTitle}>{movie?.originalTitleText?.text}</h2>
+        <span className={styles.movieInfoContentDirectedby}></span>
+        <div className={styles.movieInfoContentMetaInfo}>
+          <ImdbLogo movieId={movieId} />
           <span
-            className={styles.movieInfoContentTopDate}
+            className={styles.movieInfoContentDate}
           >{`${movie?.releaseDate?.day}/${movie?.releaseDate?.month}/${movie?.releaseDate?.year}`}</span>
-          <span className={styles.movieInfoContentTopDirectedby}></span>
         </div>
         <p className={styles.movieInfoContentSummary}>{movie?.plot?.plotText?.plainText}</p>
       </div>

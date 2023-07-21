@@ -35,24 +35,36 @@
   &Content {
     padding-left: 50px;
 
-    &TopDate {
+    &Date {
       color: var(--secondary-text-color);
     }
 
-    &Top {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-      width: 100%;
-
-      &Title {
-        color: var(--primary-text-color);
-      }
+    &Title {
+      color: var(--primary-text-color);
+      margin-bottom: 7px;
     }
 
     &Summary {
       max-width: 50%;
       color: var(--secondary-text-color);
+      margin-top: 10px;
+    }
+
+    &MetaInfo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #ffffff;
+      padding-bottom: 10px;
+      max-width: 50%;
+
+      & svg {
+        cursor: pointer;
+        transition: opacity 0.3s;
+        &:hover {
+          opacity: 80%;
+        }
+      }
     }
   }
 }
