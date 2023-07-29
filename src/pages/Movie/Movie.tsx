@@ -12,17 +12,12 @@ import { ErrorMessage } from "../../styled/ErrorMessage";
 import { FETCH_ERROR_TEXT } from "../../constants/Text";
 import { PlaceholderCard } from "../../components/UI/PlaceholderCard/PlaceholderCard";
 import { ImdbLogo } from "../../assets/imdb-logo";
+import { useFetchMovie } from "../../hooks/useFetchMovie";
 
 export function Movie() {
   const location = useLocation();
   const movieId: string | undefined = location.pathname.split("/").at(-1);
-  const movieByIdParam: GetMovieByIdParams = {
-    movieId: movieId as string,
-    info: BaseInfoOptions.BASE_INFO,
-  };
-  const { data, isLoading, isError, isFetching } = useFetchMovies(MovieEndpoints.MOVIE_BY_ID, movieByIdParam);
-  const movie: MovieByIdResponse = data?.results;
-
+  const { movie, cast, awards, revenue, isLoading, isError, isFetching } = useFetchMovie(movieId as string);
   if (isLoading || isFetching) {
     return <CircularLoading />;
   } else if (isError) {
@@ -71,7 +66,9 @@ export function Movie() {
           {movie?.ratingsSummary?.aggregateRating ? (
             <div className={styles.movieInfoContentMetaInfoRating}>
               <StarIcon sx={{ color: "orange" }} fontSize="small" />
-              <span className={styles.movieInfoContentMetaInfoRatingNumber}>{movie?.ratingsSummary?.aggregateRating}</span>
+              <span className={styles.movieInfoContentMetaInfoRatingNumber}>
+                {movie?.ratingsSummary?.aggregateRating}
+              </span>
               {movie?.ratingsSummary?.voteCount ? (
                 <span className={styles.movieInfoContentMetaInfoRatingVotes}>
                   &nbsp;{`/ ${movie?.ratingsSummary?.voteCount} Votes`}

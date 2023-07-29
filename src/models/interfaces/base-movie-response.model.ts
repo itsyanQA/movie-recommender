@@ -1,4 +1,8 @@
 import {
+  AwardsNominations,
+  AwardsPrestigiousSummary,
+  AwardsWins,
+  Cast,
   Genres,
   Movie,
   OriginalTitleText,
@@ -7,6 +11,10 @@ import {
   RatingsSummary,
   ReleaseDate,
   ReleaseYear,
+  RevenueLifetimeGross,
+  RevenueOpeningWeekendGross,
+  RevenueProductionBudget,
+  RevenueWorldWideGross,
   Runtime,
   TitleText,
   TitleType,
@@ -32,4 +40,26 @@ export interface MovieByIdResponse {
   runtime: Runtime;
   titleText: TitleText;
   titleTypes: TitleType;
+}
+
+export interface CastResponse {
+  cast: Cast;
+  id: string;
+  _id: string;
+}
+
+export interface AwardsResponse {
+  id: string;
+  nominations: AwardsNominations;
+  prestigiousAwardSummary: AwardsPrestigiousSummary;
+  wins: AwardsWins;
+  _id: string;
+}
+
+export interface RevenueResponse {
+  id: string;
+  lifeTimeGross: RevenueLifetimeGross;
+  openingWeekendGross: RevenueOpeningWeekendGross;
+  productionBudget: RevenueProductionBudget;
+  worldWideGross: RevenueWorldWideGross;
 }

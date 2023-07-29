@@ -1,21 +1,17 @@
 export interface Caption {
   plainText: string;
-  __typename: string;
 }
 
 export interface Categories {
   value: string;
-  __typename: string;
 }
 
 export interface DisplayablePropertyValue {
   plainText: string;
-  __typename: string;
 }
 
 export interface DisplayableProperty {
   value: DisplayablePropertyValue;
-  __typename: string;
 }
 
 export interface PrimaryImage {
@@ -24,25 +20,21 @@ export interface PrimaryImage {
   id: string;
   url: string;
   width: number;
-  __typename: string;
 }
 
 export interface ReleaseDate {
   day: number;
   month: number;
   year: number;
-  __typename: string;
 }
 
 export interface ReleaseYear {
   endYear: number | null;
   year: number;
-  __typename: string;
 }
 
 export interface TitleText {
   titleText: string;
-  __typename: string;
 }
 
 export interface TitleType {
@@ -53,7 +45,6 @@ export interface TitleType {
   isEpisode: boolean;
   isSeries: boolean;
   text: string;
-  __typename: string;
 }
 
 export interface PrimaryImage {
@@ -62,12 +53,10 @@ export interface PrimaryImage {
   id: string;
   url: string;
   width: number;
-  __typename: string;
 }
 
 export interface OriginalTitleText {
   text: string;
-  __typename: string;
 }
 
 export interface Movie {
@@ -83,7 +72,6 @@ export interface Movie {
 export interface Genre {
   id: string;
   text: string;
-  __typename: string;
 }
 
 export interface Genres {
@@ -92,18 +80,15 @@ export interface Genres {
 
 interface Language {
   id: string;
-  __typename: string;
 }
 
 interface PlotText {
   plainText: string;
-  __typename: string;
 }
 
 export interface Plot {
   language: Language;
   plotText: PlotText;
-  __typename: string;
 }
 
 export interface RatingsSummary {
@@ -114,5 +99,95 @@ export interface RatingsSummary {
 export interface Runtime {
   displayableProperty: DisplayableProperty;
   seconds: number;
-  __typename: string;
+}
+
+export interface Cast {
+  edges: Edges;
+}
+
+export interface Edges {
+  node: CastNode[];
+}
+
+export interface CastNode {
+  attributes: unknown;
+  category: CastCategory;
+  characters: CastCharacters;
+  episodeCredits: CastEpisodeCredits;
+  name: CastName;
+}
+
+interface CastCategory {
+  id: string;
+}
+
+interface CastCharacters {
+  name: string;
+}
+
+interface CastEpisodeCredits {
+  total: number;
+  yearRange: string;
+}
+
+interface CastName {
+  id: string;
+  nameText: CastNameText;
+  primaryImage: CastPrimaryImage;
+}
+
+interface CastNameText {
+  text: string;
+}
+
+interface CastPrimaryImage {
+  height: number;
+  url: string;
+  width: number;
+}
+
+export interface AwardsNominations {
+  total: number;
+}
+
+export interface AwardsPrestigiousSummary {
+  award: Award;
+  nominations: number;
+  wins: number;
+}
+
+export interface AwardsWins {
+  total: number;
+}
+
+interface Award {
+  event: AwardEvent;
+  id: string;
+  text: string;
+}
+
+interface AwardEvent {
+  id: string;
+}
+
+export interface RevenueLifetimeGross {
+  total: TotalAmount;
+}
+
+export interface RevenueOpeningWeekendGross {
+  gross: TotalAmount;
+  weekendEndDate: string;
+}
+
+export interface RevenueProductionBudget {
+  budget: TotalAmount;
+}
+
+export interface RevenueWorldWideGross {
+  total: TotalAmount;
+}
+
+interface TotalAmount {
+  amount: number;
+  currency: string;
 }
