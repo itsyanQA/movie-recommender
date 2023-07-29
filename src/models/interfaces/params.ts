@@ -1,6 +1,7 @@
 import { BaseInfoOptions } from "../enums/BaseInfoOptions";
+import { MovieListOptions } from "../enums/MovieListOptions";
 
-export interface GetUpcomingMoviesParams {
+export interface CommonMovieParams {
   titleType?: string;
   year?: number;
   genre?: string;
@@ -10,9 +11,13 @@ export interface GetUpcomingMoviesParams {
   sort?: string;
   page?: string;
   startYear?: number;
-};
+}
 
 export interface GetMovieByIdParams {
   movieId: string;
   info?: BaseInfoOptions;
-};
+}
+
+export interface GetMovieParams extends CommonMovieParams {
+  list?: MovieListOptions;
+}
