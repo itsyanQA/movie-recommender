@@ -1,5 +1,6 @@
 import styles from "./Movie.module.scss";
 import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
+import StarIcon from "@mui/icons-material/Star";
 import { useLocation } from "react-router-dom";
 import { useFetchMovies } from "../../hooks/useFetchMovies";
 import { MovieEndpoints } from "../../models/enums/MovieEndpoints";
@@ -67,6 +68,17 @@ export function Movie() {
           <span
             className={styles.movieInfoContentDate}
           >{`${movie?.releaseDate?.day}/${movie?.releaseDate?.month}/${movie?.releaseDate?.year}`}</span>
+          {movie?.ratingsSummary?.aggregateRating ? (
+            <div className={styles.movieInfoContentMetaInfoRating}>
+              <StarIcon sx={{ color: "orange" }} fontSize="small" />
+              <span className={styles.movieInfoContentMetaInfoRatingNumber}>{movie?.ratingsSummary?.aggregateRating}</span>
+              {movie?.ratingsSummary?.voteCount ? (
+                <span className={styles.movieInfoContentMetaInfoRatingVotes}>
+                  &nbsp;{`/ ${movie?.ratingsSummary?.voteCount} Votes`}
+                </span>
+              ) : null}
+            </div>
+          ) : null}
         </div>
         <p className={styles.movieInfoContentSummary}>{movie?.plot?.plotText?.plainText}</p>
       </div>

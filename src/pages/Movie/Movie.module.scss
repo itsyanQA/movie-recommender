@@ -56,6 +56,19 @@
       gap: 10px;
       padding-bottom: 10px;
 
+      &Rating {
+        display: flex;
+        align-items: center;
+
+        &Number {
+          color: var(--primary-text-color);
+        }
+
+        &Votes {
+          color: var(--grey);
+        }
+      }
+
       & svg {
         cursor: pointer;
         transition: opacity 0.3s;
