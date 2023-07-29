@@ -13,9 +13,9 @@ type MovieCatalogProps = {
   isError: boolean;
   isFetching: boolean;
   catalogHeaderText: string;
-  page: number;
-  setPage: React.Dispatch<React.SetStateAction<number>>;
   shouldShowPagination?: boolean;
+  page?: number | undefined;
+  setPage?: React.Dispatch<React.SetStateAction<number>> | undefined;
 };
 
 export function MovieCatalog(props: MovieCatalogProps) {
@@ -67,7 +67,7 @@ export function MovieCatalog(props: MovieCatalogProps) {
     return (
       <>
         <ErrorMessage>{MOVIES_NOT_FOUND}</ErrorMessage>
-        <Pagination movieData={movies} page={page} setPage={setPage} />
+        {shouldShowPagination && <Pagination movieData={movies} page={page} setPage={setPage} />}
       </>
     );
   }

@@ -4,13 +4,13 @@ import { useState, useEffect } from "react";
 import { Pagination as StyledPagination } from "../../../styled/Pagination";
 
 type PaginationProps = {
-  page: number;
-  setPage: React.Dispatch<React.SetStateAction<number>>;
+  page: number | undefined;
+  setPage: React.Dispatch<React.SetStateAction<number>> | undefined;
   movieData: Movie[];
 };
 
 export function Pagination({ movieData, page, setPage }: PaginationProps) {
-  const [lastPage, setLastPage] = useState<number | null>(null);
+  const [lastPage, setLastPage] = useState<number | undefined>(undefined);
   const DEFAULT_PAGINATION_COUNT: number = 50;
 
   const getPaginationCount = () => {
@@ -30,7 +30,9 @@ export function Pagination({ movieData, page, setPage }: PaginationProps) {
     <div className={styles.paginationContainer}>
       <StyledPagination
         count={getPaginationCount()}
-        onChange={(event: React.ChangeEvent<unknown>, page: number) => setPage(page)}
+        onChange={(event: React.ChangeEvent<unknown>, page: number) => {
+          if (setPage) setPage(page);
+        }}
         page={page}
         color="primary"
       />
