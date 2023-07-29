@@ -19,7 +19,7 @@ export function Movie() {
     movieId: movieId as string,
     info: BaseInfoOptions.BASE_INFO,
   };
-  const { data, isLoading, isError, isFetching } = useFetchMovies(MovieEndpoints.MOVIE, movieByIdParam);
+  const { data, isLoading, isError, isFetching } = useFetchMovies(MovieEndpoints.MOVIE_BY_ID, movieByIdParam);
   const movie: MovieByIdResponse = data?.results;
 
   if (isLoading || isFetching) {
