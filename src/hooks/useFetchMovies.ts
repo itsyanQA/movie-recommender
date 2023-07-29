@@ -1,10 +1,11 @@
 import { MovieEndpoints } from "../models/enums/MovieEndpoints";
-import { useGetUpcomingMoviesQuery, useGetMovieByIdQuery } from "../store/slices/movieApiSlice";
+import { useGetUpcomingMoviesQuery, useGetMovieByIdQuery, useGetMovieQuery } from "../store/slices/movieApiSlice";
 
 const getMovieApiQuery = (endpoint: MovieEndpoints) => {
   const movieApis = {
     [MovieEndpoints.UPCOMING_TITLES]: useGetUpcomingMoviesQuery,
-    [MovieEndpoints.MOVIE]: useGetMovieByIdQuery,
+    [MovieEndpoints.MOVIE_BY_ID]: useGetMovieByIdQuery,
+    [MovieEndpoints.MOVIE]: useGetMovieQuery,
   };
   return movieApis[endpoint];
 };
