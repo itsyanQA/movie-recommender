@@ -40,9 +40,6 @@ export function Movie() {
             {movie?.runtime?.displayableProperty?.value?.plainText}
           </span>
         </div>
-        <span className={styles.movieInfoImageContainerGenre}>
-          {movie?.genres?.genres?.map((genre) => genre.text).join("/")}
-        </span>
       </div>
     );
   };
@@ -59,23 +56,30 @@ export function Movie() {
             maxWidth: movie?.plot?.plotText?.plainText ? "50%" : "",
           }}
         >
-          <ImdbLogo movieId={movieId} />
-          <span
-            className={styles.movieInfoContentDate}
-          >{`${movie?.releaseDate?.day}/${movie?.releaseDate?.month}/${movie?.releaseDate?.year}`}</span>
-          {movie?.ratingsSummary?.aggregateRating ? (
-            <div className={styles.movieInfoContentMetaInfoRating}>
-              <StarIcon sx={{ color: "orange" }} fontSize="small" />
-              <span className={styles.movieInfoContentMetaInfoRatingNumber}>
-                {movie?.ratingsSummary?.aggregateRating}
-              </span>
-              {movie?.ratingsSummary?.voteCount ? (
-                <span className={styles.movieInfoContentMetaInfoRatingVotes}>
-                  &nbsp;{`/ ${movie?.ratingsSummary?.voteCount} Votes`}
-                </span>
-              ) : null}
-            </div>
-          ) : null}
+          <div className={styles.movieInfoContentMetaInfoFirstRow}>
+            <ImdbLogo movieId={movieId} />
+            <span
+              className={styles.movieInfoContentDate}
+            >{`${movie?.releaseDate?.day}/${movie?.releaseDate?.month}/${movie?.releaseDate?.year}`}</span>
+            {movie?.ratingsSummary?.aggregateRating ? (
+              <div className={styles.movieInfoContentMetaInfoRating}>
+                <div className={styles.movieInfoContentMetaInfoRatingStarAndNumber}>
+                  <StarIcon sx={{ color: "orange" }} fontSize="small" />
+                  <span className={styles.movieInfoContentMetaInfoRatingNumber}>
+                    {movie?.ratingsSummary?.aggregateRating}
+                  </span>
+                </div>
+                {movie?.ratingsSummary?.voteCount ? (
+                  <span className={styles.movieInfoContentMetaInfoRatingVotes}>
+                    &nbsp;{`/ ${movie?.ratingsSummary?.voteCount} Votes`}
+                  </span>
+                ) : null}
+              </div>
+            ) : null}
+          </div>
+          <span className={styles.movieInfoImageContainerGenre}>
+            {movie?.genres?.genres?.map((genre) => genre.text).join("/")}
+          </span>
         </div>
         <p className={styles.movieInfoContentSummary}>{movie?.plot?.plotText?.plainText}</p>
       </div>

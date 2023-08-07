@@ -53,9 +53,14 @@
 
     &MetaInfo {
       display: flex;
-      align-items: center;
       gap: 10px;
       padding-bottom: 10px;
+      flex-direction: column;
+
+      &FirstRow {
+        display: flex;
+        gap: 10px;
+      }
 
       &Rating {
         display: flex;
@@ -67,6 +72,10 @@
 
         &Votes {
           color: var(--grey);
+        }
+
+        &StarAndNumber {
+          display: flex;
         }
       }
 
