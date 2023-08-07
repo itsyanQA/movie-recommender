@@ -2,10 +2,8 @@
 
 .footerContainer {
   @include flexCenter(column);
-  position: relative;
+  position: absolute;
   bottom: 0;
-  left: 0;
-  right: 0;
   background-color: var(--header-footer);
   gap: 5px;
   padding-top: 20px;
