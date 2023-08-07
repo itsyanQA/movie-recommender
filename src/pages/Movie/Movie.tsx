@@ -51,7 +51,7 @@ export function Movie() {
     <div className={styles.movieInfo}>
       {renderImageContainer()}
       <div className={styles.movieInfoContent}>
-        <h2 className={styles.movieInfoContentTitle}>{movie?.originalTitleText?.text}</h2>
+        <h1 className={styles.movieInfoContentTitle}>{movie?.originalTitleText?.text}</h1>
         <div
           className={styles.movieInfoContentMetaInfo}
           style={{
