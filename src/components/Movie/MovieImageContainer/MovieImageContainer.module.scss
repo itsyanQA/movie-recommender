@@ -1,0 +1,29 @@
+@use "../../../style/mixins" as *;
+
+.movieImageContainer {
+  display: flex;
+  flex-direction: column;
+
+  & img {
+    @include flexCenter;
+    object-fit: cover;
+    box-shadow: -3px 4px 24px 3px #edc562;
+    border-radius: 5px;
+    height: 345px;
+    width: 230px;
+  }
+
+  &Duration {
+    display: flex;
+    gap: 5px;
+    margin-top: 25px;
+
+    &Time {
+      color: var(--secondary-text-color);
+    }
+  }
+
+  &Genre {
+    color: var(--secondary-text-color);
+  }
+}
