@@ -1,8 +1,9 @@
 @use "../../style/mixins" as *;
 
 .movieInfo {
-  margin: 10% 0 0 5%;
+  margin-top: 10%;
   display: flex;
+  padding-bottom: 20px;
 
   &ImageContainer {
     display: flex;
@@ -35,57 +36,15 @@
   &Content {
     padding-left: 50px;
 
-    &Date {
-      color: var(--secondary-text-color);
-    }
-
     &Title {
       color: var(--primary-text-color);
       margin-bottom: 7px;
     }
 
     &Summary {
-      max-width: 50%;
       color: var(--secondary-text-color);
       margin-top: 10px;
       font-size: 20px;
-    }
-
-    &MetaInfo {
-      display: flex;
-      gap: 10px;
-      padding-bottom: 10px;
-      flex-direction: column;
-
-      &FirstRow {
-        display: flex;
-        gap: 10px;
-      }
-
-      &Rating {
-        display: flex;
-        align-items: center;
-
-        &Number {
-          color: var(--primary-text-color);
-        }
-
-        &Votes {
-          color: var(--grey);
-        }
-
-        &StarAndNumber {
-          display: flex;
-        }
-      }
-
-      & svg {
-        cursor: pointer;
-        transition: opacity 0.3s;
-        &:hover {
-          opacity: 80%;
-        }
-      }
     }
   }
 }

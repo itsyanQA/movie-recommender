@@ -4,7 +4,7 @@ import { usePagination } from "../../hooks/usePagination";
 import { MovieEndpoints } from "../../models/enums/MovieEndpoints";
 import { TitleTypes } from "../../models/enums/TitleTypes";
 
-export function Upcoming() {
+export function UpcomingPage() {
   const { page, setPage } = usePagination();
   const upcomingMovieParams = {
     limit: 50,
