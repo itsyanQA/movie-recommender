@@ -1,6 +1,5 @@
 import { MovieCatalog } from "../../components/MovieCatalog/MovieCatalog";
 import { useFetchMovies } from "../../hooks/useFetchMovies";
-import { usePagination } from "../../hooks/usePagination";
 import { MovieEndpoints } from "../../models/enums/MovieEndpoints";
 import { MovieListOptions } from "../../models/enums/MovieListOptions";
 import { Sort } from "../../models/enums/Sort";
