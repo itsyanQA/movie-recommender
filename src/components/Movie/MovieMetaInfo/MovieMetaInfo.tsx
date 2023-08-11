@@ -1,13 +1,9 @@
 import styles from "./MovieMetaInfo.module.scss";
-import { MovieByIdResponse } from "../../../models/interfaces/base-movie-response.model";
 import { ImdbLogo } from "../../../assets/imdb-logo";
 import StarIcon from "@mui/icons-material/Star";
+import { CommonMovieProps } from "../../../models/types/CommonMovieProps";
 
-type MovieMetaInfoProps = {
-  movie: MovieByIdResponse;
-};
-
-export default function MovieMetaInfo({ movie }: MovieMetaInfoProps) {
+export default function MovieMetaInfo({ movie }: CommonMovieProps) {
   return (
     <div
       className={styles.metaInfo}
@@ -24,21 +20,15 @@ export default function MovieMetaInfo({ movie }: MovieMetaInfoProps) {
           <div className={styles.metaInfoRating}>
             <div className={styles.metaInfoRatingStarAndNumber}>
               <StarIcon sx={{ color: "orange" }} fontSize="small" />
-              <span className={styles.metaInfoRatingNumber}>
-                {movie?.ratingsSummary?.aggregateRating}
-              </span>
+              <span className={styles.metaInfoRatingNumber}>{movie?.ratingsSummary?.aggregateRating}</span>
             </div>
             {movie?.ratingsSummary?.voteCount ? (
-              <span className={styles.metaInfoRatingVotes}>
-                &nbsp;{`/ ${movie?.ratingsSummary?.voteCount} Votes`}
-              </span>
+              <span className={styles.metaInfoRatingVotes}>&nbsp;{`/ ${movie?.ratingsSummary?.voteCount} Votes`}</span>
             ) : null}
           </div>
         ) : null}
       </div>
-      <span className={styles.metaInfoGenres}>
-        {movie?.genres?.genres?.map((genre) => genre.text).join("/")}
-      </span>
+      <span className={styles.metaInfoGenres}>{movie?.genres?.genres?.map((genre) => genre.text).join("/")}</span>
     </div>
   );
 }
