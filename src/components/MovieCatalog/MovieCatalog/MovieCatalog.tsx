@@ -1,11 +1,12 @@
-import { Movie } from "../../models/interfaces/movie-base-interfaces";
+import { Movie } from "../../../models/interfaces/movie-base-interfaces";
 import styles from "./MovieCatalog.module.scss";
-import { CircularLoading } from "../UI/CircularLoading/CircularLoading";
-import { ErrorMessage } from "../../styled/ErrorMessage";
-import { FETCH_ERROR_TEXT, MOVIES_NOT_FOUND } from "../../constants/Text";
-import { Pagination } from "../UI/Pagination/Pagination";
+import { CircularLoading } from "../../UI/CircularLoading/CircularLoading";
+import { ErrorMessage } from "../../../styled/ErrorMessage";
+import { FETCH_ERROR_TEXT, MOVIES_NOT_FOUND } from "../../../constants/Text";
+import { Pagination } from "../../UI/Pagination/Pagination";
 import { useNavigate } from "react-router-dom";
-import { PlaceholderCard } from "../UI/PlaceholderCard/PlaceholderCard";
+import { PlaceholderCard } from "../../UI/PlaceholderCard/PlaceholderCard";
+import MovieCatalogCarousel from "../MovieCatalogCarousel/MovieCatalogCarousel";
 
 type MovieCatalogProps = {
   movies: Movie[];
@@ -61,6 +62,22 @@ export function MovieCatalog(props: MovieCatalogProps) {
     );
   };
 
+  const getMoviesElements = (): JSX.Element[] => {
+    return movies?.map((movie: Movie, index: number) => {
+      return (
+        <li className={styles.sectionContainerCard} key={index}>
+          {getMovieImage(movie?.primaryImage?.caption?.plainText, movie?.primaryImage?.url, movie?.id)}
+          <p onClick={() => onMovieClickHandler(movie?.id)} className={styles.sectionContainerMovieTitle}>
+            {movie?.originalTitleText.text}
+          </p>
+          <p className={styles.sectionContainerMovieDate}>
+            {`${movie?.releaseDate?.day}/${movie?.releaseDate?.month}/${movie?.releaseDate?.year}`}
+          </p>
+        </li>
+      );
+    });
+  };
+
   if (isError) {
     return <ErrorMessage>{FETCH_ERROR_TEXT}</ErrorMessage>;
   } else if (movies?.length === 0) {
@@ -78,29 +95,17 @@ export function MovieCatalog(props: MovieCatalogProps) {
     <>
       <section className={styles.sectionContainer}>
         <h2 className={styles.sectionContainerHeader}>{catalogHeaderText}</h2>
-        <ul
-          className={`${styles.sectionContainerRow} ${
-            !shouldShowPagination && styles.sectionContainerHorizontalCatalog
-          }`}
-        >
-          {movies?.map((movie: Movie, index: number) => {
-            // const alteredImageUrl = movie?.primaryImage?.url.replace(
-            //   "@._V1_.jpg",
-            //   "@._V1_QL100_UX180_CR25,0,154,229_.jpg"
-            // );
-            return (
-              <li className={styles.sectionContainerCard} key={index}>
-                {getMovieImage(movie?.primaryImage?.caption?.plainText, movie?.primaryImage?.url, movie?.id)}
-                <p onClick={() => onMovieClickHandler(movie?.id)} className={styles.sectionContainerMovieTitle}>
-                  {movie?.originalTitleText.text}
-                </p>
-                <p className={styles.sectionContainerMovieDate}>
-                  {`${movie?.releaseDate?.day}/${movie?.releaseDate?.month}/${movie?.releaseDate?.year}`}
-                </p>
-              </li>
-            );
-          })}
-        </ul>
+        {shouldShowPagination ? (
+          <ul
+            className={`${styles.sectionContainerRow} ${
+              !shouldShowPagination && styles.sectionContainerHorizontalCatalog
+            }`}
+          >
+            {getMoviesElements()}
+          </ul>
+        ) : (
+          <MovieCatalogCarousel>{getMoviesElements()}</MovieCatalogCarousel>
+        )}
       </section>
       {shouldShowPagination && <Pagination movieData={movies} page={page} setPage={setPage} />}
     </>

@@ -1,14 +1,11 @@
-@use "../../style/mixins" as *;
+@use "../../../style/mixins" as *;
 
 $placeholder-bg-color: var(--grey);
 
 .sectionContainer {
-  display: flex;
-  flex-direction: column;
-
   &MovieImage {
     height: 225px;
-    width: 150px;
+    width: 130px;
     object-fit: cover;
     border-radius: 8px;
     border: 2px solid var(--primary-color);

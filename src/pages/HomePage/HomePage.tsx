@@ -1,4 +1,4 @@
-import { MovieCatalog } from "../../components/MovieCatalog/MovieCatalog";
+import { MovieCatalog } from "../../components/MovieCatalog/MovieCatalog/MovieCatalog";
 import { useFetchMovies } from "../../hooks/useFetchMovies";
 import { MovieEndpoints } from "../../models/enums/MovieEndpoints";
 import { MovieListOptions } from "../../models/enums/MovieListOptions";
