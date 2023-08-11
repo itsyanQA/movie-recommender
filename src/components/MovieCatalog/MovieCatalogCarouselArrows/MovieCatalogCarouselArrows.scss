@@ -1,0 +1,36 @@
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--primary-color);
+  cursor: pointer;
+  background-color: #ffffff;
+  opacity: 80%;
+  transition: opacity 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  width: 35px;
+  height: 35px;
+  border: none;
+  box-shadow: 1px 1px 8px 3px;
+
+  &:hover {
+    opacity: 100%;
+  }
+}
+
+.swiper-button-next {
+  position: absolute;
+  top: 31%;
+  z-index: 1;
+  right: 0.1%;
+  margin-right: 4px;
+}
+
+.swiper-button-prev {
+  position: absolute;
+  top: 31%;
+  z-index: 1;
+  left: 0.1%;
+  margin-left: 4px;
+}
