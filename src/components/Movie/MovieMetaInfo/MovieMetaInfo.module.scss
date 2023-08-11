@@ -1,0 +1,36 @@
+    .metaInfo {
+      display: flex;
+      gap: 10px;
+      padding-bottom: 10px;
+      flex-direction: column;
+
+      &FirstRow {
+        display: flex;
+        gap: 10px;
+      }
+
+      &Rating {
+        display: flex;
+        align-items: center;
+
+        &Number {
+          color: var(--primary-text-color);
+        }
+
+        &Votes {
+          color: var(--grey);
+        }
+
+        &StarAndNumber {
+          display: flex;
+        }
+      }
+
+      & svg {
+        cursor: pointer;
+        transition: opacity 0.3s;
+        &:hover {
+          opacity: 80%;
+        }
+      }
+    }
