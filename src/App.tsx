@@ -6,9 +6,9 @@ import { moviesApi } from "./store/slices/movieApiSlice";
 import { theme } from "./style/theme";
 import { ThemeProvider } from "@mui/material/styles";
 import { Header } from "./components/Header/Header";
-import { Upcoming } from "./pages/Upcoming/Upcoming";
+import { UpcomingPage } from "./pages/UpcomingPage/UpcomingPage";
 import { RouterPaths } from "./models/enums/RouterPaths";
-import { Movie } from "./pages/Movie/Movie";
+import { MoviePage } from "./pages/MoviePage/MoviePage";
 import { Footer } from "./components/Footer/Footer";
 
 function App() {
@@ -18,8 +18,8 @@ function App() {
         <Header />
         <Routes>
           <Route path={RouterPaths.HOME_PAGE} element={<HomePage />} />
-          <Route path={RouterPaths.UPCOMING} element={<Upcoming />} />
-          <Route path={RouterPaths.MOVIE} element={<Movie />} />
+          <Route path={RouterPaths.UPCOMING} element={<UpcomingPage />} />
+          <Route path={RouterPaths.MOVIE} element={<MoviePage />} />
         </Routes>
         <Footer />
       </ThemeProvider>
