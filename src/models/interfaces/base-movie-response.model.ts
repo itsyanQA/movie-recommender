@@ -2,7 +2,7 @@ import {
   AwardsNominations,
   AwardsPrestigiousSummary,
   AwardsWins,
-  Cast,
+  Edges,
   Genres,
   Movie,
   OriginalTitleText,
@@ -43,7 +43,7 @@ export interface MovieByIdResponse {
 }
 
 export interface CastResponse {
-  cast: Cast;
+  cast: Edges;
   id: string;
   _id: string;
 }

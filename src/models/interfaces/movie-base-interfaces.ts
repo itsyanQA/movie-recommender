@@ -101,12 +101,12 @@ export interface Runtime {
   seconds: number;
 }
 
-export interface Cast {
-  edges: Edges;
+export interface Edges {
+  edges: NodeWrapper[];
 }
 
-export interface Edges {
-  node: CastNode[];
+export interface NodeWrapper {
+  node: CastNode;
 }
 
 export interface CastNode {
