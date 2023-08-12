@@ -1,5 +1,5 @@
 import "swiper/css";
-import React, { Children, useRef, useEffect } from "react";
+import React, { Children, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import MovieCatalogCarouselArrows from "../MovieCatalogCarouselArrows/MovieCatalogCarouselArrow";
@@ -15,8 +15,6 @@ export default function MovieCatalogCarousel({ children }: MovieCatalogCarouselP
     spaceBetween: 20,
     slidesPerView: 10,
     slidesPerGroup: 10,
-    crossFade: "true",
-    effect: "fade",
     modules: [Navigation],
     speed: 1000,
     loop: true,
@@ -26,11 +24,6 @@ export default function MovieCatalogCarousel({ children }: MovieCatalogCarouselP
       disabledClass: "swiper-button-disabled",
     },
   };
-
-  // useEffect(() => {
-  //   carouselRef?.current?.swiper?.changeLanguageDirection("rtl");
-  // }, []);
-  console.log(carouselRef);
 
   return (
     <Swiper {...swiperProps} ref={carouselRef}>
