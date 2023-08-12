@@ -6,6 +6,7 @@ import { FETCH_ERROR_TEXT } from "../../constants/Text";
 import { useFetchMovie } from "../../hooks/useFetchMovie";
 import MovieMetaInfo from "../../components/Movie/MovieMetaInfo/MovieMetaInfo";
 import MovieImageContainer from "../../components/Movie/MovieImageContainer/MovieImageContainer";
+import MovieCast from "../../components/Movie/MovieCast/MovieCast";
 
 export function MoviePage() {
   const location = useLocation();
@@ -27,7 +28,7 @@ export function MoviePage() {
           <p className={styles.movieInfoContentSummary}>{movie?.plot?.plotText?.plainText}</p>
         </div>
       </section>
-      <h2>Cast</h2>
+      <MovieCast cast={cast} />
     </>
   );
 }
