@@ -26,7 +26,6 @@ export default function MovieCast({ cast }: MovieCastProps) {
     }
   }, [cast]);
 
-  useEffect(() => console.log("details are: ", castDetails), [castDetails]);
   return (
     <>
       <h2>Cast</h2>
