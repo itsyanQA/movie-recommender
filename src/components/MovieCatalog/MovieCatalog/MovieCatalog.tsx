@@ -7,6 +7,7 @@ import { Pagination } from "../../UI/Pagination/Pagination";
 import { useNavigate } from "react-router-dom";
 import { PlaceholderCard } from "../../UI/PlaceholderCard/PlaceholderCard";
 import MovieCatalogCarousel from "../MovieCatalogCarousel/MovieCatalogCarousel";
+import { getLowResImage } from "../../../helper/MovieHelper";
 
 type MovieCatalogProps = {
   movies: Movie[];
@@ -66,7 +67,7 @@ export function MovieCatalog(props: MovieCatalogProps) {
     return movies?.map((movie: Movie, index: number) => {
       return (
         <li className={styles.sectionContainerCard} key={index}>
-          {getMovieImage(movie?.primaryImage?.caption?.plainText, movie?.primaryImage?.url, movie?.id)}
+          {getMovieImage(movie?.primaryImage?.caption?.plainText, getLowResImage(movie?.primaryImage?.url), movie?.id)}
           <p onClick={() => onMovieClickHandler(movie?.id)} className={styles.sectionContainerMovieTitle}>
             {movie?.originalTitleText.text}
           </p>
