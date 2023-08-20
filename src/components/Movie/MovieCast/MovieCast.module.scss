@@ -1,4 +1,8 @@
 .castList {
   display: flex;
-  
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 10px;
+  border-radius: 20px;
 }
