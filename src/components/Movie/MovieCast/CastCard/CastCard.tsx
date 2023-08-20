@@ -8,9 +8,8 @@ type CastCardProps = {
 export default function CastCard({ castDetail }: CastCardProps) {
   return (
     <li className={styles.castItem}>
-      <div className={styles.castItemImageWrapper}>
-        <img src={castDetail.pictureUrl} alt={`picture of ${castDetail.fullName}`} />
-      </div>
+      <img src={castDetail.pictureUrl} alt={`picture of ${castDetail.fullName}`} />
+      <span className={styles.castItemName}>{castDetail.fullName}</span>
     </li>
   );
 }
