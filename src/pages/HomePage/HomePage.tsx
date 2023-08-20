@@ -15,7 +15,7 @@ export function HomePage() {
   const mostPopularMoviesParams = {
     limit: LIMIT_PER_CATALOG,
     titleType: TitleTypes.MOVIE,
-    list: MovieListOptions.TOP_RATED_250,
+    list: MovieListOptions.TOP_RATED_ENGLISH_250,
     sort: Sort.YEAR_DESCENDING,
   };
 
