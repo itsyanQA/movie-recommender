@@ -10,6 +10,7 @@ import { UpcomingPage } from "./pages/UpcomingPage/UpcomingPage";
 import { RouterPaths } from "./models/enums/RouterPaths";
 import { MoviePage } from "./pages/MoviePage/MoviePage";
 import { Footer } from "./components/Footer/Footer";
+// TODO: Fix footer
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
           <Route path={RouterPaths.UPCOMING} element={<UpcomingPage />} />
           <Route path={RouterPaths.MOVIE} element={<MoviePage />} />
         </Routes>
-        <Footer />
+        {/* <Footer /> */} 
       </ThemeProvider>
     </ApiProvider>
   );
