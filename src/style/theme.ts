@@ -7,4 +7,7 @@ export const theme = createTheme({
       dark: "#f4b005",
     },
   },
+  typography: {
+    fontFamily: "Jost, sans-serif",
+  },
 });
