@@ -30,7 +30,7 @@ export default function MovieCast({ cast }: MovieCastProps) {
 
   const renderPartCast = (): JSX.Element => {
     return (
-      <ul className={styles.castList} style={{ flexWrap: "nowrap" }}>
+      <ul className={styles.castList} style={{ flexWrap: "nowrap", justifyContent: "space-between" }}>
         {castDetails?.map((castDetail, index) => {
           if (index <= 4) {
             return <CastCard castDetail={castDetail} />;
