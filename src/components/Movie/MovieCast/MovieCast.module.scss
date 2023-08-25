@@ -1,8 +1,17 @@
-.castList {
+.cast {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  padding: 10px;
-  border-radius: 20px;
+  flex-direction: column;
+  &List {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 10px;
+    border-radius: 20px;
+  }
+
+  &ShowAllButton {
+    align-self: flex-end;
+    text-transform: none;
+  }
 }
