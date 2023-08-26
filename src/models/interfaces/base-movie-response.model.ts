@@ -42,13 +42,13 @@ export interface MovieByIdResponse {
   titleTypes: TitleType;
 }
 
-export interface CastResponse {
+export interface Cast {
   cast: Edges;
   id: string;
   _id: string;
 }
 
-export interface AwardsResponse {
+export interface Awards {
   id: string;
   nominations: AwardsNominations;
   prestigiousAwardSummary: AwardsPrestigiousSummary;
@@ -56,9 +56,9 @@ export interface AwardsResponse {
   _id: string;
 }
 
-export interface RevenueResponse {
+export interface Revenue {
   id: string;
-  lifeTimeGross: RevenueLifetimeGross;
+  lifetimeGross: RevenueLifetimeGross;
   openingWeekendGross: RevenueOpeningWeekendGross;
   productionBudget: RevenueProductionBudget;
   worldWideGross: RevenueWorldWideGross;

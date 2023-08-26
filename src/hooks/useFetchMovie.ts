@@ -2,12 +2,7 @@ import { useFetchMovies } from "./useFetchMovies";
 import { GetMovieByIdParams } from "../models/interfaces/params";
 import { BaseInfoOptions } from "../models/enums/BaseInfoOptions";
 import { MovieEndpoints } from "../models/enums/MovieEndpoints";
-import {
-  AwardsResponse,
-  CastResponse,
-  MovieByIdResponse,
-  RevenueResponse,
-} from "../models/interfaces/base-movie-response.model";
+import { Awards, Cast, MovieByIdResponse, Revenue } from "../models/interfaces/base-movie-response.model";
 
 export const useFetchMovie = (movieId: string) => {
   // Params for each request
@@ -41,9 +36,9 @@ export const useFetchMovie = (movieId: string) => {
 
   // Encapsulate variables
   const movie: MovieByIdResponse = rawMovieData?.results;
-  const cast: CastResponse = rawCast?.results;
-  const awards: AwardsResponse = rawAwards?.results;
-  const revenue: RevenueResponse = rawRevenue?.results;
+  const cast: Cast = rawCast?.results;
+  const awards: Awards = rawAwards?.results;
+  const revenue: Revenue = rawRevenue?.results;
 
   return { movie, cast, awards, revenue, isLoading, isError, isFetching };
 };
