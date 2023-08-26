@@ -7,6 +7,8 @@ import { useFetchMovie } from "../../hooks/useFetchMovie";
 import MovieMetaInfo from "../../components/Movie/MovieMetaInfo/MovieMetaInfo";
 import MovieImageContainer from "../../components/Movie/MovieImageContainer/MovieImageContainer";
 import MovieCast from "../../components/Movie/MovieCast/MovieCast";
+import MovieAdditionalInfo from "../../components/Movie/MovieAdditionalInfo/MovieAdditionalInfo";
+import MovieAwards from "../../components/Movie/MovieAwards/MovieAwards";
 
 export function MoviePage() {
   const location = useLocation();
@@ -19,16 +21,18 @@ export function MoviePage() {
   }
 
   return (
-    <>
+    <main className={styles.movie}>
       <section className={styles.movieInfo}>
         <MovieImageContainer movie={movie} />
         <div className={styles.movieInfoContent}>
-          <h1 className={styles.movieInfoContentTitle}>{movie?.originalTitleText?.text}</h1>
+          <h2 className={styles.movieInfoContentTitle}>{movie?.originalTitleText?.text}</h2>
           <MovieMetaInfo movie={movie} />
           <p className={styles.movieInfoContentSummary}>{movie?.plot?.plotText?.plainText}</p>
         </div>
       </section>
       <MovieCast cast={cast} />
-    </>
+      <MovieAdditionalInfo revenue={revenue} />
+      <MovieAwards awards={awards} />
+    </main>
   );
 }

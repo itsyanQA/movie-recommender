@@ -1,50 +1,54 @@
 @use "../../style/mixins" as *;
-
-.movieInfo {
-  margin-top: 10%;
+.movie {
   display: flex;
-  padding-bottom: 20px;
-
-  &ImageContainer {
+  flex-direction: column;
+  gap: 40px;
+  
+  &Info {
     display: flex;
-    flex-direction: column;
+    padding-bottom: 20px;
 
-    &Image {
-      @include flexCenter;
-      object-fit: cover;
-      box-shadow: -3px 4px 24px 3px #edc562;
-      border-radius: 5px;
-      height: 345px;
-      width: 230px;
-    }
-
-    &Duration {
+    &ImageContainer {
       display: flex;
-      gap: 5px;
-      margin-top: 25px;
+      flex-direction: column;
 
-      &Time {
+      &Image {
+        @include flexCenter;
+        object-fit: cover;
+        box-shadow: -3px 4px 24px 3px #edc562;
+        border-radius: 5px;
+        height: 345px;
+        width: 230px;
+      }
+
+      &Duration {
+        display: flex;
+        gap: 5px;
+        margin-top: 25px;
+
+        &Time {
+          color: var(--secondary-text-color);
+        }
+      }
+
+      &Genre {
         color: var(--secondary-text-color);
       }
     }
 
-    &Genre {
-      color: var(--secondary-text-color);
-    }
-  }
+    &Content {
+      padding-left: 50px;
 
-  &Content {
-    padding-left: 50px;
+      &Title {
+        color: var(--primary-text-color);
+        margin-bottom: 7px;
+      }
 
-    &Title {
-      color: var(--primary-text-color);
-      margin-bottom: 7px;
-    }
-
-    &Summary {
-      color: var(--secondary-text-color);
-      margin-top: 10px;
-      font-size: 20px;
+      &Summary {
+        color: var(--secondary-text-color);
+        margin-top: 10px;
+        font-size: 20px;
+      }
     }
   }
 }
