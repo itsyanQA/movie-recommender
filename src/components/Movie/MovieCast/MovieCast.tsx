@@ -1,4 +1,4 @@
-import { CastResponse } from "../../../models/interfaces/base-movie-response.model";
+import { Cast } from "../../../models/interfaces/base-movie-response.model";
 import { useState, useEffect } from "react";
 import styles from "./MovieCast.module.scss";
 import CastCard from "./CastCard/CastCard";
@@ -6,11 +6,11 @@ import { CastDetail } from "../../../models/interfaces/cast-detail.model";
 import { Button } from "@mui/material";
 
 type MovieCastProps = {
-  cast: CastResponse;
+  cast: Cast;
 };
 
 export default function MovieCast({ cast }: MovieCastProps) {
-  const [castDetails, setCastDetails] = useState<CastDetail[] | null>(null);
+  const [castDetails, setCastDetails] = useState<CastDetail[]>([]);
   const [isShowAllCast, setIsShowAllCast] = useState<boolean>(false);
 
   // TODO: Remove the filteredDetails, and add an image placeholder if the url does not exist
@@ -30,10 +30,13 @@ export default function MovieCast({ cast }: MovieCastProps) {
 
   const renderPartCast = (): JSX.Element => {
     return (
-      <ul className={styles.castList} style={{ flexWrap: "nowrap", justifyContent: "space-between" }}>
+      <ul
+        className={styles.castList}
+        style={{ flexWrap: "nowrap", justifyContent: castDetails?.length < 5 ? "flex-start" : "space-between" }}
+      >
         {castDetails?.map((castDetail, index) => {
           if (index <= 4) {
-            return <CastCard castDetail={castDetail} />;
+            return <CastCard key={index} castDetail={castDetail} />;
           }
         })}
       </ul>
@@ -43,8 +46,8 @@ export default function MovieCast({ cast }: MovieCastProps) {
   const renderFullCast = (): JSX.Element => {
     return (
       <ul className={styles.castList}>
-        {castDetails?.map((castDetail) => (
-          <CastCard castDetail={castDetail} />
+        {castDetails?.map((castDetail, index) => (
+          <CastCard key={index} castDetail={castDetail} />
         ))}
       </ul>
     );
@@ -52,11 +55,13 @@ export default function MovieCast({ cast }: MovieCastProps) {
 
   return (
     <section className={styles.cast}>
-      <h2>Cast</h2>
+      <h3>Cast</h3>
       {isShowAllCast ? renderFullCast() : renderPartCast()}
-      <Button className={styles.castShowAllButton} onClick={() => setIsShowAllCast((prevState) => !prevState)}>
-        {isShowAllCast ? "Hide Cast & Crew" : "Show All Cast & Crew"}
-      </Button>
+      {castDetails?.length > 5 && (
+        <Button className={styles.castShowAllButton} onClick={() => setIsShowAllCast((prevState) => !prevState)}>
+          {isShowAllCast ? "Hide Cast & Crew" : "Show All Cast & Crew"}
+        </Button>
+      )}
     </section>
   );
 }
